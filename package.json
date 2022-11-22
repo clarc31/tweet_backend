@@ -1,0 +1,8 @@
+{
+  "name": "tweet_backend",
+  "version": "1.0.0",
+  "description": "Back hackatweet",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
