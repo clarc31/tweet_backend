@@ -7,10 +7,12 @@ const uid2 = require("uid2");
 const bcrypt = require("bcrypt");
 
 router.post("/signup", (req, res) => {
+  
   if (!checkBody(req.body, ["username", "firstname", "password"])) {
     res.json({ result: false, error: "Missing or empty fields" });
     return;
   }
+  
 
   //création de 3 user user 1 - firstname 1 - mdp1
 
@@ -32,7 +34,7 @@ router.post("/signup", (req, res) => {
 
       // Ajout d'un nouvel utilisateur
       newUser.save().then((newDoc) => {
-        res.json({ result: true, token: newDoc.token });
+        res.json({ result: true, token: newDoc.token, username: newDoc.username, canDelete: newDoc.canDelete });
       });
     } else {
       // Si l'utilisateur existe déja dans la data base
